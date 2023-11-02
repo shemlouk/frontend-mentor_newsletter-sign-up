@@ -1,5 +1,6 @@
-import IconList from "./assets/images/icon-list.svg";
 import IllustrationSignUpMobile from "./assets/images/illustration-sign-up-mobile.svg";
+import Button from "./components/Button";
+import ListItem from "./components/ListItem";
 
 function App() {
   return (
@@ -12,18 +13,9 @@ function App() {
           <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
           <ul className="flex flex-col gap-2">
-            <li className="flex gap-4 items-start">
-              <img src={IconList} alt="check icon" />
-              <p>Product discovery and building what matters</p>
-            </li>
-            <li className="flex gap-4 items-start">
-              <img src={IconList} alt="check icon" />
-              <p>Measuring to ensure updates are a success</p>
-            </li>
-            <li className="flex gap-4 items-start">
-              <img src={IconList} alt="check icon" />
-              <p>And much more!</p>
-            </li>
+            <ListItem text="Product discovery and building what matters" />
+            <ListItem text="Measuring to ensure updates are a success" />
+            <ListItem text="And much more!" />
           </ul>
 
           <form className="flex flex-col gap-4">
@@ -37,11 +29,7 @@ function App() {
               placeholder="email@company.com"
               className="rounded-lg border border-grey p-4 placeholder:text-grey outline-none"
             />
-            <input
-              type="submit"
-              value="Subscribe to monthly newsletter"
-              className="font-bold text-white p-4 bg-darkSlateGrey rounded-lg"
-            />
+            <Button text="Subscribe to monthly newsletter" />
           </form>
         </div>
       </div>
