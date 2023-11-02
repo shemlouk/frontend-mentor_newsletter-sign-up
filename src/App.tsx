@@ -1,15 +1,32 @@
+import { signal } from "@preact/signals-react";
+import IllustrationSignUpDesktop from "./assets/images/illustration-sign-up-desktop.svg";
 import IllustrationSignUpMobile from "./assets/images/illustration-sign-up-mobile.svg";
 import Button from "./components/Button";
 import ListItem from "./components/ListItem";
 
+const DESKTOP_SCREEN_WIDTH = 768;
+const screenWidth = signal(window.innerWidth);
+
+window.addEventListener("resize", () => {
+  screenWidth.value = window.innerWidth;
+});
+
 function App() {
   return (
-    <div className="font-[Roboto] w-full h-screen bg-charcoalGrey flex justify-between items-center text-darkSlateGrey">
-      <div className="bg-white h-full w-full flex gap-10 flex-col">
-        <img src={IllustrationSignUpMobile} alt="illustration" />
+    <div className="font-[Roboto] w-full h-screen bg-charcoalGrey flex text-darkSlateGrey justify-center items-center">
+      <div className="bg-white h-full w-full flex gap-10 flex-col md:h-[600px] md:w-[900px] md:rounded-3xl md:flex-row-reverse md:items-center md:p-6">
+        <img
+          src={
+            screenWidth.value >= DESKTOP_SCREEN_WIDTH
+              ? IllustrationSignUpDesktop
+              : IllustrationSignUpMobile
+          }
+          alt="illustration"
+          className="md:h-full"
+        />
 
         <div className="flex-col gap-6 mx-6 pb-4 flex">
-          <h1 className="font-bold text-4xl">Stay updated!</h1>
+          <h1 className="font-bold text-4xl md:text-5xl">Stay updated!</h1>
           <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
           <ul className="flex flex-col gap-2">
@@ -18,8 +35,8 @@ function App() {
             <ListItem text="And much more!" />
           </ul>
 
-          <form className="flex flex-col gap-4">
-            <label htmlFor="email" className="font-bold text-sm translate-y-2">
+          <form className="flex flex-col gap-6">
+            <label htmlFor="email" className="font-bold text-sm translate-y-4">
               Email address
             </label>
             <input
