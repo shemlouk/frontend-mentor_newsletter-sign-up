@@ -5,6 +5,7 @@ import IllustrationSignUpDesktop from "./assets/images/illustration-sign-up-desk
 import IllustrationSignUpMobile from "./assets/images/illustration-sign-up-mobile.svg";
 import Button from "./components/Button";
 import ListItem from "./components/ListItem";
+import { email } from "./contexts/email";
 
 const DESKTOP_SCREEN_WIDTH = 768;
 const screenWidth = signal(window.innerWidth);
@@ -13,9 +14,7 @@ window.addEventListener("resize", () => {
   screenWidth.value = window.innerWidth;
 });
 
-const email = signal("");
-
-function App() {
+export function App() {
   const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(

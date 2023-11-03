@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import IconSuccess from "../assets/images/icon-success.svg";
 import Button from "../components/Button";
+import { email } from "../contexts/email";
 
 function Done() {
   return (
@@ -12,8 +13,9 @@ function Done() {
             Thanks for subscribing!
           </h1>
           <p>
-            A confirmation email has been sent to <strong>email</strong>. Please
-            open it and click the button inside to confirm your subscription
+            A confirmation email has been sent to <strong>{email}</strong>.
+            Please open it and click the button inside to confirm your
+            subscription.
           </p>
         </div>
 
