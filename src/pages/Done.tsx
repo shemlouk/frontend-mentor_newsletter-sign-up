@@ -20,7 +20,7 @@ function Done() {
         </div>
 
         <Link to="/">
-          <Button text="Dismiss message" />
+          <Button text="Dismiss message" onClick={() => (email.value = "")} />
         </Link>
       </div>
     </div>
